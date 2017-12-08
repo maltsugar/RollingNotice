@@ -9,6 +9,9 @@
 几乎和UITableView一样的体验，自定义cell的话`必须`继承`GYNoticeViewCell`，你只管自定义你的View，并根据index赋值，轮播交给它。
 具体用法demo 里有的！
 
+- 手动下载: `GYRollingNoticeView`拖进去
+- Cocoapods: `pod 'RollingNotice', '~> 1.0.0'`
+
 
 ![](http://wx3.sinaimg.cn/mw690/72aba7efgy1fm9ctgv1zdg20af0iwjwg.gif)
 
