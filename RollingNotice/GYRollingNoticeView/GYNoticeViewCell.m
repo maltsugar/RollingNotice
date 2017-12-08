@@ -26,6 +26,15 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+       
+    }
+    return self;
+}
+
 
 - (void)layoutSubviews
 {
@@ -33,6 +42,7 @@
     _contentView.frame = self.bounds;
     _textLabel.frame = CGRectMake(10, 0, self.frame.size.width - 20, self.frame.size.height);
 }
+
 
 
 
