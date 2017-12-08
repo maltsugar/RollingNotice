@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "RollingNotice"
   s.version      = "1.0.0"
-  s.summary      = "A rolling banner, custom cell like UITableViewCell supported"
+  s.summary      = "仿淘宝头条，滚动公告 A rolling banner, custom cell like UITableViewCell supported"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,6 +25,8 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+                    可以简单的滚动文本公告，也可以像淘宝头条那样很复杂。你自定义cell，根据index赋值，滚动交给它！
+                    用法和UITableView几乎一样，也支持重用
                     A rolling banner for iOS, you can custom cell for it. Just similar as UITableView 
                    DESC
 
