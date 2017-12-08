@@ -28,7 +28,7 @@
     float w = [[UIScreen mainScreen] bounds].size.width;
     UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, w, 100)];
     lab.numberOfLines = 0;
-    lab.text = @"滚动公告、广告，支持自定义cell，模仿淘宝头。 \nUITableViewCell重用理念，支持请Star!";
+    lab.text = @"滚动公告、广告，支持自定义cell，模仿淘宝头条等等。 \nUITableViewCell重用理念，支持请Star!";
     [self.view addSubview:lab];
     
     
@@ -52,6 +52,7 @@
 
 }
 
+// 请在合适的时机 销毁timer
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
