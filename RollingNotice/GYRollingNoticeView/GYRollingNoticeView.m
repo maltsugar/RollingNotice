@@ -28,6 +28,7 @@
     self = [super init];
     if (self) {
         self.clipsToBounds = YES;
+        _stayInterval = 2;
         [self addGestureRecognizer:self.gyTapGesture];
     }
     return self;
@@ -38,6 +39,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.clipsToBounds = YES;
+        _stayInterval = 2;
         [self addGestureRecognizer:self.gyTapGesture];
     }
     return self;
@@ -54,7 +56,7 @@
     [self.cellClsDict setObject:nib forKey:identifier];
 }
 
-- (GYNoticeViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier
+- (__kindof GYNoticeViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier
 {
     for (GYNoticeViewCell *cell in self.reuseCells) {
         
@@ -67,8 +69,11 @@
     id cellClass = self.cellClsDict[identifier];
     if ([cellClass isKindOfClass:[UINib class]]) {
         UINib *nib = (UINib *)cellClass;
+        
         NSArray *arr = [nib instantiateWithOwner:nil options:nil];
-        return [arr firstObject];
+        GYNoticeViewCell *cell = [arr firstObject];
+        [cell setValue:identifier forKeyPath:@"reuseIdentifier"];
+        return cell;
     }else
     {
         Class cellCls = NSClassFromString(self.cellClsDict[identifier]);
@@ -131,7 +136,7 @@
     _currentIndex = 0;
     if (nil == _timer) {
         
-        _timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timerHandle) userInfo:nil repeats:YES];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:_stayInterval target:self selector:@selector(timerHandle) userInfo:nil repeats:YES];
         NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
         [runLoop addTimer:_timer forMode:NSRunLoopCommonModes];
     }

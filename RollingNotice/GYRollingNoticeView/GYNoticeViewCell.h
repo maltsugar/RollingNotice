@@ -14,5 +14,6 @@
 @property (nonatomic, readonly, strong) UILabel *textLabel;
 @property (nonatomic, readonly,   copy) NSString *reuseIdentifier;
 
-- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 @end

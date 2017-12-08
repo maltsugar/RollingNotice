@@ -22,4 +22,32 @@
 @implementation CustomNoticeCell
 
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    _tagLab0.layer.borderColor = [UIColor orangeColor].CGColor;
+    _tagLab0.layer.borderWidth = 0.5;
+    _tagLab0.layer.cornerRadius = 3;
+    
+    _tagLab1.layer.borderColor = [UIColor orangeColor].CGColor;
+    _tagLab1.layer.borderWidth = 0.5;
+    _tagLab1.layer.cornerRadius = 3;
+}
+
+
+- (void)noticeCellWithArr:(NSArray *)arr forIndex:(NSUInteger)index
+{
+    NSDictionary *dic = arr[index];
+    _trailIconImgView.image = [UIImage imageNamed:dic[@"img"]];
+    
+    _tagLab0.text = [dic[@"arr"] firstObject][@"tag"];
+    _titleLab0.text = [dic[@"arr"] firstObject][@"title"];
+    
+    _tagLab1.text = [dic[@"arr"] lastObject][@"tag"];
+    _titleLab1.text = [dic[@"arr"] lastObject][@"title"];
+    
+}
+
+
 @end

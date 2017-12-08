@@ -10,4 +10,6 @@
 
 @interface CustomNoticeCell : GYNoticeViewCell
 
+- (void)noticeCellWithArr:(NSArray *)arr forIndex:(NSUInteger)index;
+
 @end

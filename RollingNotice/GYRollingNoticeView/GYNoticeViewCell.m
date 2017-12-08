@@ -12,16 +12,11 @@
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super init];
+    self = [super initWithFrame:CGRectZero];
     if (self) {
         NSLog(@"%s", __func__);
-        self.backgroundColor = [UIColor whiteColor];
-        _contentView = [[UIView alloc] init];
-        [self addSubview:_contentView];
-        
         _reuseIdentifier = reuseIdentifier;
-        _textLabel = [[UILabel alloc]init];
-        [_contentView addSubview:_textLabel];
+        [self setupInitialUI];
     }
     return self;
 }
@@ -30,9 +25,23 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-       
+        NSLog(@"%s", __func__);
     }
     return self;
+}
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    return [self initWithReuseIdentifier:@""];
+}
+
+- (void)setupInitialUI
+{
+    self.backgroundColor = [UIColor whiteColor];
+    _contentView = [[UIView alloc] init];
+    [self addSubview:_contentView];
+    
+    _textLabel = [[UILabel alloc]init];
+    [_contentView addSubview:_textLabel];
 }
 
 
