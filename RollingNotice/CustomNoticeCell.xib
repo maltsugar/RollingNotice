@@ -17,9 +17,15 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tb_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4bY-J4-xBH">
                     <rect key="frame" x="15" y="1.5" width="45" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="O9U-F8-VoQ"/>
+                    </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tb_icon2" translatesAutoresizingMaskIntoConstraints="NO" id="aLa-Is-kB9">
                     <rect key="frame" x="291" y="1" width="84" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="84" id="9KF-jf-A3Y"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJi-N6-nxU">
                     <rect key="frame" x="68" y="6.5" width="26" height="14"/>
@@ -79,7 +85,7 @@
                 <outlet property="titleLab1" destination="ea4-oU-zoT" id="hog-Og-q1a"/>
                 <outlet property="trailIconImgView" destination="aLa-Is-kB9" id="nBz-nm-4B4"/>
             </connections>
-            <point key="canvasLocation" x="-238.5" y="-410"/>
+            <point key="canvasLocation" x="-282" y="-433"/>
         </view>
     </objects>
     <resources>
