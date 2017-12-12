@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     float w = [[UIScreen mainScreen] bounds].size.width;
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, w, 100)];
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, w, 100)];
     lab.numberOfLines = 0;
     lab.text = @"滚动公告、广告，支持自定义cell，模仿淘宝头条等等。 \nUITableViewCell重用理念，支持请Star!";
     [self.view addSubview:lab];
@@ -64,9 +64,9 @@
 - (void)creatRollingViewWithArray:(NSArray *)arr isFirst:(BOOL)isFirst
 {
     float w = [[UIScreen mainScreen] bounds].size.width;
-    CGRect frame = CGRectMake(0, 100, w, 50);
+    CGRect frame = CGRectMake(0, 150, w, 50);
     if (!isFirst) {
-        frame = CGRectMake(0, 200, w, 30);
+        frame = CGRectMake(0, 250, w, 30);
     }
     
     GYRollingNoticeView *noticeView = [[GYRollingNoticeView alloc]initWithFrame:frame];
