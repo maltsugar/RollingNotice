@@ -10,6 +10,7 @@ According to the design concept of UITableView, rolling cells support reuse, up 
 ### Usage
 - manual: drag `GYRollingNoticeView` in your project
 - Cocoapods: `pod 'RollingNotice', '~> 1.0.0'`
+ 
 **customized cell must inherit `GYNoticeViewCell`.**
 
 For more details, see the demo project. Just similar as UITableView.
