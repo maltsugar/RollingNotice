@@ -4,12 +4,12 @@
 This library can scroll any view, scroll up and down the notice, advertising. You only need to customize the view and assin value according index, roll will be done by it!
 
 It can be very flexible, similar to UITableViewCell.
-According to the design concept of UITableView, rolling cells support reuse, up to two cells will be allocated by now.
+According to the design concept of UITableView, rolling cells support reuse, up to two cells will be allocated.
 
 
 ### Usage
 - manual: drag `GYRollingNoticeView` in your project
-- Cocoapods: `pod 'RollingNotice', '~> 1.0.0'`
+- Cocoapods: `pod 'RollingNotice', '~> 1.0.2'`
  
 **customized cell must inherit `GYNoticeViewCell`.**
 
