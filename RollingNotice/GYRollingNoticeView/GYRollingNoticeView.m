@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableDictionary *cellClsDict;
 @property (nonatomic, strong) NSMutableArray *reuseCells;
 
+@property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) int currentIndex;
 @property (nonatomic, strong) GYNoticeViewCell *currentCell;
 @property (nonatomic, strong) GYNoticeViewCell *willShowCell;

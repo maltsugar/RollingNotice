@@ -60,12 +60,12 @@
 
 }
 
-// 请在合适的时机 销毁timer
+// 请在合适的时机 停止
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [_noticeView0.timer invalidate];
-    [_noticeView1.timer invalidate];
+    [_noticeView0 stopRoll];
+    [_noticeView1 stopRoll];
 }
 
 

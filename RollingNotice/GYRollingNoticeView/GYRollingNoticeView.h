@@ -28,7 +28,6 @@
 
 @property (nonatomic, assign) id<GYRollingNoticeViewDataSource> dataSource;
 @property (nonatomic, assign) id<GYRollingNoticeViewDelegate> delegate;
-@property (nonatomic, strong) NSTimer *timer; // 在合适的地方销毁它 you must invalidate it when not use,for example '-viewDidDismiss'
 @property (nonatomic, assign) NSTimeInterval stayInterval; // 停留时间 默认2秒
 
 - (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier;
