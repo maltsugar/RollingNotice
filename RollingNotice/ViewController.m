@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "GYRollingNoticeView.h"
 #import "CustomNoticeCell.h"
+#import "DemoCell2.h"
+#import "DemoCell3.h"
 
 @interface ViewController ()<GYRollingNoticeViewDataSource, GYRollingNoticeViewDelegate>
 {
@@ -52,11 +54,11 @@
     
     
     // 刷新数据源  reload datasource test ok
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        _arr1 = @[@"0", @"1", @"2", @"3", @"4", @"5"];
-//        _arr1 = @[@"0"];
-        [_noticeView1 reloadDataAndStartRoll];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        _arr1 = @[@"0", @"1", @"2", @"3", @"4", @"5"];
+////        _arr1 = @[@"0"];
+//        [_noticeView1 reloadDataAndStartRoll];
+//    });
 
 }
 
@@ -87,9 +89,12 @@
     if (isFirst) {
         _noticeView0 = noticeView;
         [noticeView registerNib:[UINib nibWithNibName:@"CustomNoticeCell" bundle:nil] forCellReuseIdentifier:@"CustomNoticeCell"];
+        [noticeView registerNib:[UINib nibWithNibName:@"DemoCell3" bundle:nil] forCellReuseIdentifier:@"DemoCell3"];
+        
     }else{
         _noticeView1 = noticeView;
         [noticeView registerClass:[GYNoticeViewCell class] forCellReuseIdentifier:@"GYNoticeViewCell"];
+        [noticeView registerClass:[DemoCell2 class] forCellReuseIdentifier:@"DemoCell2"];
     }
     
     [noticeView reloadDataAndStartRoll];
@@ -112,20 +117,40 @@
 - (__kindof GYNoticeViewCell *)rollingNoticeView:(GYRollingNoticeView *)rollingView cellAtIndex:(NSUInteger)index
 {
     if (rollingView == _noticeView0) {
-        CustomNoticeCell *cell = [rollingView dequeueReusableCellWithIdentifier:@"CustomNoticeCell"];
-        [cell noticeCellWithArr:_arr0 forIndex:index];
-        return cell;
+
+        if (index < 3) {
+            CustomNoticeCell *cell = [rollingView dequeueReusableCellWithIdentifier:@"CustomNoticeCell"];
+            [cell noticeCellWithArr:_arr0 forIndex:index];
+            return cell;
+        }else
+        {
+            DemoCell3 *cell = [rollingView dequeueReusableCellWithIdentifier:@"DemoCell3"];
+            NSDictionary *dic = _arr0[index];
+            cell.lab0.text = [dic[@"arr"] firstObject][@"title"];
+            cell.lab1.text = [dic[@"arr"] lastObject][@"title"];
+            return cell;
+        }
+        
+        
+        
     }
     
     // 普通用法，只有一行label滚动显示文字
     // normal use, only one line label rolling
     if (rollingView == _noticeView1) {
         GYNoticeViewCell *cell = [rollingView dequeueReusableCellWithIdentifier:@"GYNoticeViewCell"];
-        cell.textLabel.text = _arr1[index];
+        cell.textLabel.text = [NSString stringWithFormat:@"第1种cell %@", _arr1[index]];
         cell.contentView.backgroundColor = [UIColor orangeColor];
         if (index % 2 == 0) {
             cell.contentView.backgroundColor = [UIColor greenColor];
         }
+        
+        if (index > 2) {
+            cell = [rollingView dequeueReusableCellWithIdentifier:@"DemoCell2"];
+            cell.textLabel.text = [NSString stringWithFormat:@"第2种cell %@", _arr1[index]];
+            cell.contentView.backgroundColor = [UIColor redColor];
+        }
+        
 //        NSLog(@"%p", cell);
         return cell;
     }

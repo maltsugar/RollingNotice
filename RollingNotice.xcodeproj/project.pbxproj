@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		916CCC9E1FDA34330070CAF3 /* CustomNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 916CCC9D1FDA34330070CAF3 /* CustomNoticeCell.m */; };
 		916CCCA01FDA343F0070CAF3 /* CustomNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916CCC9F1FDA343F0070CAF3 /* CustomNoticeCell.xib */; };
+		919DB80E1FE0F44600029F63 /* DemoCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 919DB80D1FE0F44600029F63 /* DemoCell2.m */; };
+		919DB8111FE0F84400029F63 /* DemoCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 919DB8101FE0F84400029F63 /* DemoCell3.m */; };
+		919DB8131FE0F84E00029F63 /* DemoCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919DB8121FE0F84E00029F63 /* DemoCell3.xib */; };
 		91FFD87C1FD52A36004A1A27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD87B1FD52A36004A1A27 /* AppDelegate.m */; };
 		91FFD87F1FD52A36004A1A27 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD87E1FD52A36004A1A27 /* ViewController.m */; };
 		91FFD8821FD52A36004A1A27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FFD8801FD52A36004A1A27 /* Main.storyboard */; };
@@ -23,6 +26,11 @@
 		916CCC9C1FDA34330070CAF3 /* CustomNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomNoticeCell.h; sourceTree = "<group>"; };
 		916CCC9D1FDA34330070CAF3 /* CustomNoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomNoticeCell.m; sourceTree = "<group>"; };
 		916CCC9F1FDA343F0070CAF3 /* CustomNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNoticeCell.xib; sourceTree = "<group>"; };
+		919DB80C1FE0F44600029F63 /* DemoCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoCell2.h; sourceTree = "<group>"; };
+		919DB80D1FE0F44600029F63 /* DemoCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoCell2.m; sourceTree = "<group>"; };
+		919DB80F1FE0F84400029F63 /* DemoCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoCell3.h; sourceTree = "<group>"; };
+		919DB8101FE0F84400029F63 /* DemoCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoCell3.m; sourceTree = "<group>"; };
+		919DB8121FE0F84E00029F63 /* DemoCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoCell3.xib; sourceTree = "<group>"; };
 		91FFD8771FD52A36004A1A27 /* RollingNotice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RollingNotice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91FFD87A1FD52A36004A1A27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		91FFD87B1FD52A36004A1A27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,6 +85,11 @@
 				916CCC9C1FDA34330070CAF3 /* CustomNoticeCell.h */,
 				916CCC9D1FDA34330070CAF3 /* CustomNoticeCell.m */,
 				916CCC9F1FDA343F0070CAF3 /* CustomNoticeCell.xib */,
+				919DB80C1FE0F44600029F63 /* DemoCell2.h */,
+				919DB80D1FE0F44600029F63 /* DemoCell2.m */,
+				919DB80F1FE0F84400029F63 /* DemoCell3.h */,
+				919DB8101FE0F84400029F63 /* DemoCell3.m */,
+				919DB8121FE0F84E00029F63 /* DemoCell3.xib */,
 				91FFD8801FD52A36004A1A27 /* Main.storyboard */,
 				91FFD8831FD52A36004A1A27 /* Assets.xcassets */,
 				91FFD8851FD52A36004A1A27 /* LaunchScreen.storyboard */,
@@ -155,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919DB8131FE0F84E00029F63 /* DemoCell3.xib in Resources */,
 				91FFD8871FD52A36004A1A27 /* LaunchScreen.storyboard in Resources */,
 				91FFD8841FD52A36004A1A27 /* Assets.xcassets in Resources */,
 				916CCCA01FDA343F0070CAF3 /* CustomNoticeCell.xib in Resources */,
@@ -171,9 +185,11 @@
 			files = (
 				916CCC9E1FDA34330070CAF3 /* CustomNoticeCell.m in Sources */,
 				91FFD8961FD52A96004A1A27 /* GYNoticeViewCell.m in Sources */,
+				919DB80E1FE0F44600029F63 /* DemoCell2.m in Sources */,
 				91FFD8931FD52A6F004A1A27 /* GYRollingNoticeView.m in Sources */,
 				91FFD87F1FD52A36004A1A27 /* ViewController.m in Sources */,
 				91FFD88A1FD52A36004A1A27 /* main.m in Sources */,
+				919DB8111FE0F84400029F63 /* DemoCell3.m in Sources */,
 				91FFD87C1FD52A36004A1A27 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

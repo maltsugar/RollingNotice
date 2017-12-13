@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DemoCell3">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2GY-gN-TGY">
+                    <rect key="frame" x="16" y="11.5" width="121" height="29"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojk-eg-wYY">
+                    <rect key="frame" x="142" y="7.5" width="33" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wU-mX-uAB">
+                    <rect key="frame" x="142" y="27.5" width="33" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3wU-mX-uAB" firstAttribute="centerY" secondItem="2GY-gN-TGY" secondAttribute="centerY" constant="10" id="3qJ-g2-J9t"/>
+                <constraint firstItem="3wU-mX-uAB" firstAttribute="leading" secondItem="Ojk-eg-wYY" secondAttribute="leading" id="4gA-A2-6YV"/>
+                <constraint firstItem="Ojk-eg-wYY" firstAttribute="leading" secondItem="2GY-gN-TGY" secondAttribute="trailing" constant="5" id="F9M-nX-Vga"/>
+                <constraint firstItem="Ojk-eg-wYY" firstAttribute="centerY" secondItem="2GY-gN-TGY" secondAttribute="centerY" constant="-10" id="JOr-iw-2in"/>
+                <constraint firstItem="2GY-gN-TGY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="WbI-D2-1Yt"/>
+                <constraint firstItem="2GY-gN-TGY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="yNE-QJ-usf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lab0" destination="Ojk-eg-wYY" id="WPB-cF-JbZ"/>
+                <outlet property="lab1" destination="3wU-mX-uAB" id="bmp-7U-pQI"/>
+            </connections>
+            <point key="canvasLocation" x="-191" y="-297"/>
+        </view>
+    </objects>
+</document>
