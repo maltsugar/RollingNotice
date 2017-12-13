@@ -4,7 +4,16 @@
 前一段时间遇到了滚动公告的需求，搜了好多天，发现没有简单明了的库可用。大神们写的都太复杂了，star比较高的两个，一个不支持动态刷新标题，一个甚至写了循环scrollView的功能，功能太过强大，我认为比较庞大，就没有用了(我本人喜欢简洁一点的库)。后来找了一个简单的[WCScrollLabelView](https://github.com/Verchen/WCScrollLabelView)，算是符合我的预期，然鹅我又给他改[两个bug](https://github.com/Verchen/WCScrollLabelView/issues/1)，一个是timer不释放，一个是只有一个labe时有问题。😅
 
 ---
-于是就有了这个开源库，很曲折啊。闲暇时间写了一个，非常灵活，简单使用就用自带的cell，像淘宝那样的复杂的，自定义cell，会自动重用cell，最多创建2个。
+于是就有了这个开源库，很曲折啊。闲暇时间写了一个，非常灵活。
+
+### 特点：
+
+- UITableView设计理念， 开发者只需要自定义自己的view（想要多复杂的View都行） 并根据index赋值，轮播交给它。
+- 简单一行文字轮播用自带的cell， 复杂的自定义cell
+- cell 支持重用，目前一种cell最多创建2个
+- 支持动态刷新数据源，多种cell混用
+- 用法几乎和UITableView一样
+
 
 希望大家共同进步，有问题欢迎issue
 ### 用法
