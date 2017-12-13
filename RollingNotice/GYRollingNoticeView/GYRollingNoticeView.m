@@ -109,10 +109,11 @@
         _currentCell = [self.dataSource rollingNoticeView:self cellAtIndex:_currentIndex];
         _currentCell.frame  = CGRectMake(0, 0, w, h);
         [self addSubview:_currentCell];
+        return;
     }
     
     
-//    NSLog(@"_currentCell %p", _currentCell);
+//    NSLog(@"_currentCell  %p", _currentCell);
     _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
 //    NSLog(@"_willShowCell %p", _willShowCell);
     
@@ -125,21 +126,35 @@
     
 }
 
-- (void)beginScroll
+- (void)reloadDataAndStartRoll
 {
+    [self stopRoll];
+
     [self layoutCurrentCellAndWillShowCell];
     NSInteger count = [self.dataSource numberOfRowsForRollingNoticeView:self];
     if (count && count < 2) {
         return;
     }
     
-    _currentIndex = 0;
-    if (nil == _timer) {
-        
-        _timer = [NSTimer scheduledTimerWithTimeInterval:_stayInterval target:self selector:@selector(timerHandle) userInfo:nil repeats:YES];
-        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-        [runLoop addTimer:_timer forMode:NSRunLoopCommonModes];
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:_stayInterval target:self selector:@selector(timerHandle) userInfo:nil repeats:YES];
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+    [runLoop addTimer:_timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)stopRoll
+{
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
     }
+    
+    _currentIndex = 0;
+    [_currentCell removeFromSuperview];
+    [_willShowCell removeFromSuperview];
+    _currentCell = nil;
+    _willShowCell = nil;
+    [self.reuseCells removeAllObjects];
 }
 
 - (void)timerHandle
@@ -155,11 +170,12 @@
         _currentCell.frame = CGRectMake(0, -h, w, h);
         _willShowCell.frame = CGRectMake(0, 0, w, h);
     } completion:^(BOOL finished) {
-        
-        [self.reuseCells addObject:_currentCell];
-        [_currentCell removeFromSuperview];
-        
-        _currentCell = _willShowCell;
+        // fixed bug: reload data when animate running
+        if (_currentCell && _willShowCell) {
+            [self.reuseCells addObject:_currentCell];
+            [_currentCell removeFromSuperview];
+            _currentCell = _willShowCell;
+        }
     }];
 }
 

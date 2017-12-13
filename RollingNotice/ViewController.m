@@ -49,6 +49,14 @@
     
     [self creatRollingViewWithArray:_arr0 isFirst:YES];
     [self creatRollingViewWithArray:_arr1 isFirst:NO];
+    
+    
+    // 刷新数据源  reload datasource test ok
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _arr1 = @[@"0", @"1", @"2", @"3", @"4", @"5"];
+//        _arr1 = @[@"0"];
+        [_noticeView1 reloadDataAndStartRoll];
+    });
 
 }
 
@@ -84,7 +92,7 @@
         [noticeView registerClass:[GYNoticeViewCell class] forCellReuseIdentifier:@"GYNoticeViewCell"];
     }
     
-    [noticeView beginScroll];
+    [noticeView reloadDataAndStartRoll];
 }
 
 
@@ -118,6 +126,7 @@
         if (index % 2 == 0) {
             cell.contentView.backgroundColor = [UIColor greenColor];
         }
+//        NSLog(@"%p", cell);
         return cell;
     }
     

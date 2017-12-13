@@ -35,6 +35,8 @@
 - (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
 - (__kindof GYNoticeViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
 
-- (void)beginScroll;
+- (void)reloadDataAndStartRoll;
+- (void)stopRoll; // 在合适的地方停止timer。 you must stop it when not use,for example '-viewDidDismiss'
+
 
 @end

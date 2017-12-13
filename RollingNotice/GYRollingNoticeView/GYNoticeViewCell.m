@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:CGRectZero];
     if (self) {
-        NSLog(@"%s", __func__);
+        NSLog(@"init a cell from code: %p", self);
         _reuseIdentifier = reuseIdentifier;
         [self setupInitialUI];
     }
@@ -25,7 +25,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        NSLog(@"%s", __func__);
+        NSLog(@"init a cell from xib");
     }
     return self;
 }
@@ -52,7 +52,10 @@
     _textLabel.frame = CGRectMake(10, 0, self.frame.size.width - 20, self.frame.size.height);
 }
 
-
+- (void)dealloc
+{
+    NSLog(@"%p, %s", self, __func__);
+}
 
 
 @end
