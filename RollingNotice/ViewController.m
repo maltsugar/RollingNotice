@@ -138,21 +138,23 @@
     // 普通用法，只有一行label滚动显示文字
     // normal use, only one line label rolling
     if (rollingView == _noticeView1) {
-        GYNoticeViewCell *cell = [rollingView dequeueReusableCellWithIdentifier:@"GYNoticeViewCell"];
-        cell.textLabel.text = [NSString stringWithFormat:@"第1种cell %@", _arr1[index]];
-        cell.contentView.backgroundColor = [UIColor orangeColor];
-        if (index % 2 == 0) {
-            cell.contentView.backgroundColor = [UIColor greenColor];
+        if (index < 3) {
+            GYNoticeViewCell *cell = [rollingView dequeueReusableCellWithIdentifier:@"GYNoticeViewCell"];
+            cell.textLabel.text = [NSString stringWithFormat:@"第1种cell %@", _arr1[index]];
+            cell.contentView.backgroundColor = [UIColor orangeColor];
+            if (index % 2 == 0) {
+                cell.contentView.backgroundColor = [UIColor greenColor];
+            }
+            return cell;
+        }else {
+            
+            DemoCell2 *cell = [rollingView dequeueReusableCellWithIdentifier:@"DemoCell2"];
+            cell.customLab.text = [NSString stringWithFormat:@"第2种cell %@", _arr1[index]];
+            cell.contentView.backgroundColor = [UIColor purpleColor];
+            return cell;
         }
         
-        if (index > 2) {
-            cell = [rollingView dequeueReusableCellWithIdentifier:@"DemoCell2"];
-            cell.textLabel.text = [NSString stringWithFormat:@"第2种cell %@", _arr1[index]];
-            cell.contentView.backgroundColor = [UIColor redColor];
-        }
         
-//        NSLog(@"%p", cell);
-        return cell;
     }
     
     

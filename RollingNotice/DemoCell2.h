@@ -10,4 +10,6 @@
 
 @interface DemoCell2 : GYNoticeViewCell
 
+@property (nonatomic, strong) UILabel *customLab;
+
 @end
