@@ -9,7 +9,7 @@ You only need to customize the view and assin value according to the index, roll
 - According to the UITableView design concept, developers only need to customize their own view (no matter how complicated it is) and assign value according to the index, roll will be done by it!
 - A simple use for one line label roll, its own cell will be OK. For complicated cell you can customize view.
 - All cells support reuse, same kind of cell will be allocted up to 2
-- Support dynamic refresh data source, a variety of cell mix
+- Support dynamic refresh data source, multi type cell mix
 - Almost the same as UITableView usage
 
 Issues are welcome, hope you like it!
