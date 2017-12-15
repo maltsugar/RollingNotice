@@ -1,5 +1,7 @@
 # Rolling Notice、Rolling Advertisement
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) ![](https://img.shields.io/cocoapods/v/RollingNotice.svg?style=flat) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)
+
+##### [Swift Version](https://github.com/maltsugar/RollingNotice-Swift)
 ### Introduce[中文介绍](https://github.com/maltsugar/RollingNotice/blob/master/README_Zh.md)
 This library can scroll any view, scroll up and down the notice, advertising. It can be very flexible, similar to UITableViewCell.
 You only need to customize the view and assin value according to the index, roll will be done by it!
