@@ -59,7 +59,10 @@
 
 - (void)dealloc
 {
-    NSLog(@"%p, %s", self, __func__);
+    if (GYRollingDebugLog) {
+        NSLog(@"%p, %s", self, __func__);
+    }
+    
 }
 
 
