@@ -1,5 +1,5 @@
 # Rolling Notice、Rolling Advertisement
-![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) ![](https://img.shields.io/cocoapods/v/RollingNotice.svg?style=flat) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)
+![](https://img.shields.io/badge/platform-iOS-red.svg)&nbsp;![](https://img.shields.io/badge/language-Objective--C-orange.svg)&nbsp;[![CocoaPods](http://img.shields.io/cocoapods/v/RollingNotice.svg?style=flat)](http://cocoapods.org/pods/RollingNotice)&nbsp;![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)
 
 ##### [Swift Version](https://github.com/maltsugar/RollingNotice-Swift)
 ### Introduce
@@ -17,7 +17,7 @@ You only need to customize the view and assin value according to the index, roll
 Issues are welcome, hope you like it!
 ### Usage
 - manual: drag `GYRollingNoticeView` in your project
-- Cocoapods: `pod 'RollingNotice', '~> 1.0.2'`
+- Cocoapods: `pod 'RollingNotice', '~> 1.0.3'`
  
 **customized cell must inherit `GYNoticeViewCell`.**
 
