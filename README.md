@@ -1,8 +1,10 @@
-# 滚动公告、广告 [English](https://github.com/maltsugar/RollingNotice/blob/master/README_en.md)
-![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) ![](https://img.shields.io/cocoapods/v/RollingNotice.svg?style=flat) ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)
-
+# 滚动公告、广告  
+![](https://img.shields.io/badge/platform-iOS-red.svg)&nbsp;![](https://img.shields.io/badge/language-Objective--C-orange.svg)&nbsp;[![CocoaPods](http://img.shields.io/cocoapods/v/RollingNotice.svg?style=flat)](http://cocoapods.org/pods/RollingNotice)&nbsp;![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)
+##### [English](https://github.com/maltsugar/RollingNotice/blob/master/README_en.md)
 ##### [Swift 版本](https://github.com/maltsugar/RollingNotice-Swift)
 
+
+### 版本记录
 - 1.0.3 修复极少数情况下，动画过程退到后台，可能出现残影的bug，感谢[@pcjbird](https://github.com/pcjbird)指出并帮忙修复
 
 ### 经历
@@ -33,6 +35,7 @@
 
 ### 许可证
 转载请注明出处，谢谢
+
 GYRollingNoticeView 使用 MIT 许可证，详情见 LICENSE 文件。
 
 
