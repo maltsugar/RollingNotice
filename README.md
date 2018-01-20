@@ -29,7 +29,7 @@
 具体用法demo 里有的！
 
 - 手动下载: `GYRollingNoticeView`拖进去
-- Cocoapods: `pod 'RollingNotice', '~> 1.0.3'`
+- Cocoapods: `pod 'RollingNotice'`
 
 
 ![](http://wx3.sinaimg.cn/mw690/72aba7efgy1fmdy022ow6g20bn08g0xn.gif)
