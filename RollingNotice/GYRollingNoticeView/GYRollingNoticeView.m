@@ -10,7 +10,9 @@
 #import "GYNoticeViewCell.h"
 
 @interface GYRollingNoticeView ()
-
+{
+    BOOL _isAnimating;
+}
 @property (nonatomic, strong) NSMutableDictionary *cellClsDict;
 @property (nonatomic, strong) NSMutableArray *reuseCells;
 
@@ -114,13 +116,17 @@
     }
     
     
-//    NSLog(@"_currentCell  %p", _currentCell);
-    _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
-//    NSLog(@"_willShowCell %p", _willShowCell);
     
+    _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
     _willShowCell.frame = CGRectMake(0, h, w, h);
     [self addSubview:_willShowCell];
     
+    
+    if (GYRollingDebugLog) {
+        NSLog(@"_currentCell  %p", _currentCell);
+        NSLog(@"_willShowCell %p", _willShowCell);
+    }
+
     [self.reuseCells removeObject:_currentCell];
     [self.reuseCells removeObject:_willShowCell];
     
@@ -150,6 +156,7 @@
         _timer = nil;
     }
     
+    _isAnimating = NO;
     _currentIndex = 0;
     [_currentCell removeFromSuperview];
     [_willShowCell removeFromSuperview];
@@ -161,12 +168,16 @@
 - (void)timerHandle
 {
 //    NSLog(@"-----------------------------------");
+    
+    if (_isAnimating) return;
+    
     [self layoutCurrentCellAndWillShowCell];
     _currentIndex ++;
     
     float w = self.frame.size.width;
     float h = self.frame.size.height;
     
+    _isAnimating = YES;
     [UIView animateWithDuration:0.5 animations:^{
         _currentCell.frame = CGRectMake(0, -h, w, h);
         _willShowCell.frame = CGRectMake(0, 0, w, h);
@@ -177,6 +188,7 @@
             [_currentCell removeFromSuperview];
             _currentCell = _willShowCell;
         }
+        _isAnimating = NO;
     }];
 }
 

@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "RollingNotice"
-  s.version      = "1.0.2"
-  s.summary      = "仿淘宝头条，滚动公告 A rolling banner, custom cell like UITableViewCell supported"
+  s.version      = "1.0.3"
+  s.summary      = "滚动公告、广告，支持灵活自定义cell。淘宝、口碑、京东、美团、天猫等等一切滚动广告 Roll Notice or Advertising. A rolling banner, custom cell like UITableViewCell supported"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?

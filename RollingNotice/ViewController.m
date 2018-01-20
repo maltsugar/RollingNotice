@@ -85,7 +85,6 @@
     [self.view addSubview:noticeView];
     noticeView.backgroundColor = [UIColor lightGrayColor];
     
-    
     if (isFirst) {
         _noticeView0 = noticeView;
         [noticeView registerNib:[UINib nibWithNibName:@"CustomNoticeCell" bundle:nil] forCellReuseIdentifier:@"CustomNoticeCell"];

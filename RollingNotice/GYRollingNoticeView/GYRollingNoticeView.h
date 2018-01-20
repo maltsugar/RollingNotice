@@ -23,6 +23,7 @@
 @end
 
 
+
 @interface GYRollingNoticeView : UIView
 
 

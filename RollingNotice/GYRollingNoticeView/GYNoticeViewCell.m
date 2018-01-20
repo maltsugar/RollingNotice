@@ -14,7 +14,9 @@
 {
     self = [super initWithFrame:CGRectZero];
     if (self) {
-        NSLog(@"init a cell from code: %p", self);
+        if (GYRollingDebugLog) {
+            NSLog(@"init a cell from code: %p", self);
+        }
         _reuseIdentifier = reuseIdentifier;
         [self setupInitialUI];
     }
@@ -25,7 +27,10 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        NSLog(@"init a cell from xib");
+        
+        if (GYRollingDebugLog) {
+            NSLog(@"init a cell from xib");
+        }
     }
     return self;
 }
