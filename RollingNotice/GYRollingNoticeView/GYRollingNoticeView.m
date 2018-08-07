@@ -20,7 +20,6 @@
 @property (nonatomic, assign) int currentIndex;
 @property (nonatomic, strong) GYNoticeViewCell *currentCell;
 @property (nonatomic, strong) GYNoticeViewCell *willShowCell;
-@property (nonatomic, strong) UITapGestureRecognizer *gyTapGesture;
 
 @end
 
@@ -32,7 +31,7 @@
     if (self) {
         self.clipsToBounds = YES;
         _stayInterval = 2;
-        [self addGestureRecognizer:self.gyTapGesture];
+        [self addGestureRecognizer:[self createTapGesture]];
     }
     return self;
 }
@@ -43,7 +42,7 @@
     if (self) {
         self.clipsToBounds = YES;
         _stayInterval = 2;
-        [self addGestureRecognizer:self.gyTapGesture];
+        [self addGestureRecognizer:[self createTapGesture]];
     }
     return self;
 }
@@ -204,6 +203,11 @@
     }
 }
 
+- (UITapGestureRecognizer *)createTapGesture
+{
+   return [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleCellTapAction)];
+}
+
 #pragma mark- lazy
 - (NSMutableDictionary *)cellClsDict
 {
@@ -220,12 +224,6 @@
     }
     return _reuseCells;
 }
-- (UITapGestureRecognizer *)gyTapGesture
-{
-    if (nil == _gyTapGesture) {
-        _gyTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleCellTapAction)];
-    }
-    return _gyTapGesture;
-}
+
 
 @end
