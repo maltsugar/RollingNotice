@@ -7,6 +7,7 @@
 
 ### 版本记录
 - 1.0.3 修复极少数情况下，动画过程退到后台，可能出现残影的bug，感谢[@pcjbird](https://github.com/pcjbird)指出并帮忙修复
+- 1.0.4 支持xib创建滚动视图[#9](https://github.com/maltsugar/RollingNotice/issues/9)
 
 ### 经历
 前一段时间遇到了滚动公告的需求，搜了好多天，发现没有简单明了的库可用。大神们写的都太复杂了，star比较高的两个，一个不支持动态刷新标题，一个甚至写了循环scrollView的功能，功能太过强大，我认为比较庞大，就没有用了(我本人喜欢简洁一点的库)。后来找了一个简单的[WCScrollLabelView](https://github.com/Verchen/WCScrollLabelView)，算是符合我的预期，然鹅我又给他改[两个bug](https://github.com/Verchen/WCScrollLabelView/issues/1)，一个是timer不释放，一个是只有一个labe时有问题。😅

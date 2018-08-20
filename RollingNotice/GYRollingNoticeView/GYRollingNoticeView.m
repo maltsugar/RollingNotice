@@ -17,7 +17,6 @@
 @property (nonatomic, strong) NSMutableArray *reuseCells;
 
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, assign) int currentIndex;
 @property (nonatomic, strong) GYNoticeViewCell *currentCell;
 @property (nonatomic, strong) GYNoticeViewCell *willShowCell;
 
@@ -29,9 +28,7 @@
 {
     self = [super init];
     if (self) {
-        self.clipsToBounds = YES;
-        _stayInterval = 2;
-        [self addGestureRecognizer:[self createTapGesture]];
+        [self setupNoticeViews];
     }
     return self;
 }
@@ -40,12 +37,26 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.clipsToBounds = YES;
-        _stayInterval = 2;
-        [self addGestureRecognizer:[self createTapGesture]];
+        [self setupNoticeViews];
     }
     return self;
 }
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setupNoticeViews];
+    }
+    return self;
+}
+
+- (void)setupNoticeViews
+{
+    self.clipsToBounds = YES;
+    _stayInterval = 2;
+    [self addGestureRecognizer:[self createTapGesture]];
+}
+
 
 
 - (void)registerClass:(nullable Class)cellClass forCellReuseIdentifier:(NSString *)identifier
@@ -207,6 +218,8 @@
 {
    return [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleCellTapAction)];
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{}
 
 #pragma mark- lazy
 - (NSMutableDictionary *)cellClsDict

@@ -11,6 +11,8 @@
 #import "CustomNoticeCell.h"
 #import "DemoCell2.h"
 #import "DemoCell3.h"
+#import "SecondViewController.h"
+
 
 @interface ViewController ()<GYRollingNoticeViewDataSource, GYRollingNoticeViewDelegate>
 {
@@ -28,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     float w = [[UIScreen mainScreen] bounds].size.width;
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, w, 100)];
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, w, 100)];
     lab.numberOfLines = 0;
     lab.text = @"滚动公告、广告，支持自定义cell，模仿淘宝头条等等。 \nUITableViewCell重用理念，支持请Star!";
     [self.view addSubview:lab];
@@ -70,13 +72,19 @@
     [_noticeView1 stopRoll];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_noticeView0 reloadDataAndStartRoll];
+}
+
 
 - (void)creatRollingViewWithArray:(NSArray *)arr isFirst:(BOOL)isFirst
 {
     float w = [[UIScreen mainScreen] bounds].size.width;
-    CGRect frame = CGRectMake(0, 150, w, 50);
+    CGRect frame = CGRectMake(0, 190, w, 50);
     if (!isFirst) {
-        frame = CGRectMake(0, 250, w, 30);
+        frame = CGRectMake(0, 290, w, 30);
     }
     
     GYRollingNoticeView *noticeView = [[GYRollingNoticeView alloc]initWithFrame:frame];
@@ -163,6 +171,12 @@
 - (void)didClickRollingNoticeView:(GYRollingNoticeView *)rollingView forIndex:(NSUInteger)index
 {
     NSLog(@"点击的index: %d", index);
+}
+
+- (IBAction)handleRightAction:(UIBarButtonItem *)sender
+{
+    SecondViewController *vc = [SecondViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
