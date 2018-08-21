@@ -56,7 +56,7 @@
 - (__kindof GYNoticeViewCell *)rollingNoticeView:(GYRollingNoticeView *)rollingView cellAtIndex:(NSUInteger)index
 {
     GYNoticeViewCell *cell = [rollingView dequeueReusableCellWithIdentifier:@"GYNoticeViewCell"];
-    cell.textLabel.text = [NSString stringWithFormat:@"index %d ,%@", index, _arr[index]];
+    cell.textLabel.text = [NSString stringWithFormat:@"index %d ,%@", (int)index, _arr[index]];
     cell.contentView.backgroundColor = [UIColor orangeColor];
     if (index % 2 == 0) {
         cell.contentView.backgroundColor = [UIColor greenColor];

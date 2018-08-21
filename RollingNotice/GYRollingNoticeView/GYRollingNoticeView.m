@@ -9,16 +9,21 @@
 #import "GYRollingNoticeView.h"
 #import "GYNoticeViewCell.h"
 
+
+#define kGYNotiWeakSelf(type)  __weak typeof(type) weak##type = type;
+#define kGYNotiStrongSelf(type) __strong typeof(type) type = weak##type;
+
 @interface GYRollingNoticeView ()
-{
-    BOOL _isAnimating;
-}
+
+
 @property (nonatomic, strong) NSMutableDictionary *cellClsDict;
 @property (nonatomic, strong) NSMutableArray *reuseCells;
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) GYNoticeViewCell *currentCell;
 @property (nonatomic, strong) GYNoticeViewCell *willShowCell;
+@property (nonatomic, assign) BOOL isAnimating;
+
 
 @end
 
@@ -179,7 +184,7 @@
 {
 //    NSLog(@"-----------------------------------");
     
-    if (_isAnimating) return;
+    if (self.isAnimating) return;
     
     [self layoutCurrentCellAndWillShowCell];
     _currentIndex ++;
@@ -187,18 +192,24 @@
     float w = self.frame.size.width;
     float h = self.frame.size.height;
     
-    _isAnimating = YES;
+    self.isAnimating = YES;
+    
+    kGYNotiWeakSelf(self);
     [UIView animateWithDuration:0.5 animations:^{
-        _currentCell.frame = CGRectMake(0, -h, w, h);
-        _willShowCell.frame = CGRectMake(0, 0, w, h);
+        kGYNotiStrongSelf(self);
+        
+        self.currentCell.frame = CGRectMake(0, -h, w, h);
+        self.willShowCell.frame = CGRectMake(0, 0, w, h);
     } completion:^(BOOL finished) {
+        kGYNotiStrongSelf(self);
+        
         // fixed bug: reload data when animate running
-        if (_currentCell && _willShowCell) {
-            [self.reuseCells addObject:_currentCell];
-            [_currentCell removeFromSuperview];
-            _currentCell = _willShowCell;
+        if (self.currentCell && self.willShowCell) {
+            [self.reuseCells addObject:self.currentCell];
+            [self.currentCell removeFromSuperview];
+            self.currentCell = self.willShowCell;
         }
-        _isAnimating = NO;
+        self.isAnimating = NO;
     }];
 }
 
