@@ -27,8 +27,8 @@
 @interface GYRollingNoticeView : UIView
 
 
-@property (nonatomic, assign) id<GYRollingNoticeViewDataSource> dataSource;
-@property (nonatomic, assign) id<GYRollingNoticeViewDelegate> delegate;
+@property (nonatomic, weak) id<GYRollingNoticeViewDataSource> dataSource;
+@property (nonatomic, weak) id<GYRollingNoticeViewDelegate> delegate;
 @property (nonatomic, assign) NSTimeInterval stayInterval; // 停留时间 默认2秒
 @property (nonatomic, assign, readonly) int currentIndex;
 
