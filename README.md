@@ -7,7 +7,7 @@
 
 ### 版本记录
 
-- 1.0.7 普通用法textLabel支持左右间距设置
+- 1.0.8 普通用法textLabel支持左右间距设置
 - 1.0.6 delegate和dataSource使用weak修饰，更加安全合理，代理、数据源释放时属性自动置nil
 - 1.0.5 小更新，修改readme里一个单词拼写错误，去掉动画block里self强引用提示
 - 1.0.4 支持xib创建滚动视图[#9](https://github.com/maltsugar/RollingNotice/issues/9)

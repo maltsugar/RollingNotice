@@ -61,13 +61,19 @@
     if (nil != _textLabel) {
         CGFloat lead = _textLabelLeading;
         if (lead < 0) {
+            NSLog(@"⚠️⚠️textLabelLeading must >= 0⚠️⚠️");
             lead = 0;
         }
         CGFloat trai = _textLabelTrailing;
         if (trai < 0) {
+            NSLog(@"⚠️⚠️textLabelTrailing must >= 0⚠️⚠️");
             trai = 0;
         }
         CGFloat width = self.frame.size.width - lead - trai;
+        if (width < 0) {
+            NSLog(@"⚠️⚠️width must >= 0⚠️⚠️");
+            width = 0;
+        }
         _textLabel.frame = CGRectMake(lead, 0, width, self.frame.size.height);
     }
     
