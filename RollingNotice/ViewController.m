@@ -170,7 +170,7 @@
 
 - (void)didClickRollingNoticeView:(GYRollingNoticeView *)rollingView forIndex:(NSUInteger)index
 {
-    NSLog(@"点击的index: %d", index);
+    NSLog(@"点击的index: %lu", (unsigned long)index);
 }
 
 - (IBAction)handleRightAction:(UIBarButtonItem *)sender

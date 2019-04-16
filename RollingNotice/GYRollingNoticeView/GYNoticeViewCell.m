@@ -17,6 +17,8 @@
         if (GYRollingDebugLog) {
             NSLog(@"init a cell from code: %p", self);
         }
+        _textLabelLeading = 10;
+        _textLabelTrailing = 10;
         _reuseIdentifier = reuseIdentifier;
         [self setupInitialUI];
     }
@@ -53,8 +55,23 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
     _contentView.frame = self.bounds;
-    _textLabel.frame = CGRectMake(10, 0, self.frame.size.width - 20, self.frame.size.height);
+    
+    if (nil != _textLabel) {
+        CGFloat lead = _textLabelLeading;
+        if (lead < 0) {
+            lead = 0;
+        }
+        CGFloat trai = _textLabelTrailing;
+        if (trai < 0) {
+            trai = 0;
+        }
+        CGFloat width = self.frame.size.width - lead - trai;
+        _textLabel.frame = CGRectMake(lead, 0, width, self.frame.size.height);
+    }
+    
+    
 }
 
 - (void)dealloc

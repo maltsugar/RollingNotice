@@ -58,8 +58,10 @@
     GYNoticeViewCell *cell = [rollingView dequeueReusableCellWithIdentifier:@"GYNoticeViewCell"];
     cell.textLabel.text = [NSString stringWithFormat:@"index %d ,%@", (int)index, _arr[index]];
     cell.contentView.backgroundColor = [UIColor orangeColor];
+    cell.textLabelLeading = 30;
     if (index % 2 == 0) {
         cell.contentView.backgroundColor = [UIColor greenColor];
+        cell.textLabelLeading = 0;
     }
     return cell;
     
