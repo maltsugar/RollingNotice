@@ -152,8 +152,13 @@
 {
     [self stopRoll];
 
-    [self layoutCurrentCellAndWillShowCell];
     NSInteger count = [self.dataSource numberOfRowsForRollingNoticeView:self];
+    if (count < 1) {
+        return;
+    }
+    
+    [self layoutCurrentCellAndWillShowCell];
+    
     if (count && count < 2) {
         return;
     }
