@@ -167,6 +167,7 @@
     _timer = [NSTimer scheduledTimerWithTimeInterval:_stayInterval target:self selector:@selector(timerHandle) userInfo:nil repeats:YES];
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
     [runLoop addTimer:_timer forMode:NSRunLoopCommonModes];
+    [self resume];
 }
 
 - (void)stopRoll
@@ -176,6 +177,7 @@
         _timer = nil;
     }
     
+    _status = GYRollingNoticeViewStatusIdle;
     _isAnimating = NO;
     _currentIndex = 0;
     [_currentCell removeFromSuperview];
@@ -183,6 +185,21 @@
     _currentCell = nil;
     _willShowCell = nil;
     [self.reuseCells removeAllObjects];
+}
+
+- (void)pause
+{
+    if (_timer) {
+        [_timer setFireDate:[NSDate distantFuture]];
+        _status = GYRollingNoticeViewStatusPause;
+    }
+}
+- (void)resume
+{
+    if (_timer) {
+        [_timer setFireDate:[NSDate distantPast]];
+        _status = GYRollingNoticeViewStatusWorking;
+    }
 }
 
 - (void)timerHandle

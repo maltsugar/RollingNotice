@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,10 +25,19 @@
                         <constraint firstAttribute="height" constant="50" id="i4g-kb-bS3"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcJ-vO-R5P">
+                    <rect key="frame" x="166.5" y="342" width="42" height="30"/>
+                    <state key="normal" title="pause"/>
+                    <connections>
+                        <action selector="handleBtnAction:" destination="-1" eventType="touchUpInside" id="xhV-br-aYa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.99381071330000004" green="0.94827011380000004" blue="0.89437531079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="CcJ-vO-R5P" firstAttribute="top" secondItem="tBY-UI-wrH" secondAttribute="bottom" constant="192" id="4SF-4R-cCI"/>
                 <constraint firstAttribute="trailing" secondItem="tBY-UI-wrH" secondAttribute="trailing" constant="20" id="UZv-OB-ia9"/>
+                <constraint firstItem="CcJ-vO-R5P" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XB7-gf-Bwe"/>
                 <constraint firstItem="tBY-UI-wrH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="aqa-5c-z5P"/>
                 <constraint firstItem="tBY-UI-wrH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="j08-Mf-M81"/>
             </constraints>

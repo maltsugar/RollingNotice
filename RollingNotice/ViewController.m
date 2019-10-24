@@ -38,30 +38,30 @@
     
     
     _arr0 = @[
-              @{@"arr": @[@{@"tag": @"手机", @"title": @"小米千元全面屏：抱歉，久等！625献上"}, @{@"tag": @"萌宠", @"title": @"可怜狗狗被抛弃，苦苦等候主人半年"}], @"img": @"tb_icon2"},
-              @{@"arr": @[@{@"tag": @"手机", @"title": @"三星中端新机改名，全面屏火力全开"}, @{@"tag": @"围观", @"title": @"主人假装离去，狗狗直接把孩子推回去了"}], @"img": @"tb_icon3"},
-              @{@"arr": @[@{@"tag": @"园艺", @"title": @"学会这些，这5种花不用去花店买了"}, @{@"tag": @"手机", @"title": @"华为nova2S发布，剧透了荣耀10？"}], @"img": @"tb_icon5"},
-              @{@"arr": @[@{@"tag": @"开发", @"title": @"iOS 内购最新讲解"}, @{@"tag": @"博客", @"title": @"技术博客那些事儿"}], @"img": @"tb_icon6"},
-              @{@"arr": @[@{@"tag": @"招聘", @"title": @"招聘XX高级开发工程师"}, @{@"tag": @"资讯", @"title": @"如何写一篇好的技术博客"}], @"img": @"tb_icon7"}
-              ];
+        @{@"arr": @[@{@"tag": @"手机", @"title": @"小米千元全面屏：抱歉，久等！625献上"}, @{@"tag": @"萌宠", @"title": @"可怜狗狗被抛弃，苦苦等候主人半年"}], @"img": @"tb_icon2"},
+        @{@"arr": @[@{@"tag": @"手机", @"title": @"三星中端新机改名，全面屏火力全开"}, @{@"tag": @"围观", @"title": @"主人假装离去，狗狗直接把孩子推回去了"}], @"img": @"tb_icon3"},
+        @{@"arr": @[@{@"tag": @"园艺", @"title": @"学会这些，这5种花不用去花店买了"}, @{@"tag": @"手机", @"title": @"华为nova2S发布，剧透了荣耀10？"}], @"img": @"tb_icon5"},
+        @{@"arr": @[@{@"tag": @"开发", @"title": @"iOS 内购最新讲解"}, @{@"tag": @"博客", @"title": @"技术博客那些事儿"}], @"img": @"tb_icon6"},
+        @{@"arr": @[@{@"tag": @"招聘", @"title": @"招聘XX高级开发工程师"}, @{@"tag": @"资讯", @"title": @"如何写一篇好的技术博客"}], @"img": @"tb_icon7"}
+    ];
     _arr1 = @[@"小米千元全面屏：抱歉，久等！625献上",
               @"可怜狗狗被抛弃，苦苦等候主人半年",
               @"三星中端新机改名，全面屏火力全开",
               @"学会这些，这5种花不用去花店买了",
               @"华为nova2S发布，剧透了荣耀10？"
-              ];
+    ];
     
     [self creatRollingViewWithArray:_arr0 isFirst:YES];
     [self creatRollingViewWithArray:_arr1 isFirst:NO];
     
     
     // 刷新数据源  reload datasource test ok
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        _arr1 = @[@"0", @"1", @"2", @"3", @"4", @"5"];
-////        _arr1 = @[@"0"];
-//        [_noticeView1 reloadDataAndStartRoll];
-//    });
-
+    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //        _arr1 = @[@"0", @"1", @"2", @"3", @"4", @"5"];
+    ////        _arr1 = @[@"0"];
+    //        [_noticeView1 reloadDataAndStartRoll];
+    //    });
+    
 }
 
 // 请在合适的时机 停止
@@ -124,7 +124,7 @@
 - (__kindof GYNoticeViewCell *)rollingNoticeView:(GYRollingNoticeView *)rollingView cellAtIndex:(NSUInteger)index
 {
     if (rollingView == _noticeView0) {
-
+        
         if (index < 3) {
             CustomNoticeCell *cell = [rollingView dequeueReusableCellWithIdentifier:@"CustomNoticeCell"];
             [cell noticeCellWithArr:_arr0 forIndex:index];
@@ -173,11 +173,22 @@
     NSLog(@"点击的index: %lu", (unsigned long)index);
 }
 
+#pragma mark- IBActions
+
 - (IBAction)handleRightAction:(UIBarButtonItem *)sender
 {
     SecondViewController *vc = [SecondViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+
+- (IBAction)handlePauseResumeAction:(UIButton *)sender {
+    if (_noticeView0.status == GYRollingNoticeViewStatusWorking) {
+        [_noticeView0 pause];
+        
+    }else if (_noticeView0.status != GYRollingNoticeViewStatusWorking) {
+        [_noticeView0 resume];
+    }
+}
 
 @end

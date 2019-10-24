@@ -28,11 +28,11 @@
     // Do any additional setup after loading the view from its nib.
     
     _arr = @[@"小米千元全面屏：抱歉，久等！625献上",
-              @"可怜狗狗被抛弃，苦苦等候主人半年",
-              @"三星中端新机改名，全面屏火力全开",
-              @"学会这些，这5种花不用去花店买了",
-              @"华为nova2S发布，剧透了荣耀10？"
-              ];
+             @"可怜狗狗被抛弃，苦苦等候主人半年",
+             @"三星中端新机改名，全面屏火力全开",
+             @"学会这些，这5种花不用去花店买了",
+             @"华为nova2S发布，剧透了荣耀10？"
+    ];
     
     _noticeView.delegate = self;
     _noticeView.dataSource = self;
@@ -75,18 +75,19 @@
 
 
 
-
-
-
-
-
-
-
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)handleBtnAction:(UIButton *)sender {
+    if (_noticeView.status == GYRollingNoticeViewStatusWorking) {
+        [_noticeView pause];
+        [sender setTitle:@"resume" forState:UIControlStateNormal];
+        
+    }else if (_noticeView.status != GYRollingNoticeViewStatusWorking) {
+        [_noticeView resume];
+        [sender setTitle:@"pause" forState:UIControlStateNormal];
+    }
 }
+
+
+
 
 - (void)dealloc
 {
