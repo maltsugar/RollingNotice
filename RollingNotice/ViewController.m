@@ -51,8 +51,8 @@
               @"华为nova2S发布，剧透了荣耀10？"
     ];
     
-//    [self creatRollingViewWithArray:_arr0 isFirst:YES];
-//    [self creatRollingViewWithArray:_arr1 isFirst:NO];
+    [self creatRollingViewWithArray:_arr0 isFirst:YES];
+    [self creatRollingViewWithArray:_arr1 isFirst:NO];
     
     
     // 刷新数据源  reload datasource test ok
