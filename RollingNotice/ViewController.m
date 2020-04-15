@@ -12,7 +12,7 @@
 #import "DemoCell2.h"
 #import "DemoCell3.h"
 #import "SecondViewController.h"
-
+#import "ThirdViewController.h"
 
 @interface ViewController ()<GYRollingNoticeViewDataSource, GYRollingNoticeViewDelegate>
 {
@@ -51,8 +51,8 @@
               @"华为nova2S发布，剧透了荣耀10？"
     ];
     
-    [self creatRollingViewWithArray:_arr0 isFirst:YES];
-    [self creatRollingViewWithArray:_arr1 isFirst:NO];
+//    [self creatRollingViewWithArray:_arr0 isFirst:YES];
+//    [self creatRollingViewWithArray:_arr1 isFirst:NO];
     
     
     // 刷新数据源  reload datasource test ok
@@ -177,7 +177,8 @@
 
 - (IBAction)handleRightAction:(UIBarButtonItem *)sender
 {
-    SecondViewController *vc = [SecondViewController new];
+//    SecondViewController *vc = [SecondViewController new];
+    ThirdViewController *vc = [ThirdViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

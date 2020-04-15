@@ -15,6 +15,10 @@
 
 @interface GYRollingNoticeView ()
 
+{
+    int _cIdx;
+    BOOL _needTryRoll;
+}
 
 @property (nonatomic, strong) NSMutableDictionary *cellClsDict;
 @property (nonatomic, strong) NSMutableArray *reuseCells;
@@ -28,6 +32,7 @@
 @end
 
 @implementation GYRollingNoticeView
+@dynamic currentIndex;
 
 - (instancetype)init
 {
@@ -60,6 +65,16 @@
     self.clipsToBounds = YES;
     _stayInterval = 2;
     [self addGestureRecognizer:[self createTapGesture]];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    if (_needTryRoll) {
+        [self reloadDataAndStartRoll];
+        _needTryRoll = NO;
+    }
+    
 }
 
 
@@ -106,25 +121,29 @@
 - (void)layoutCurrentCellAndWillShowCell
 {
     int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
-    if (_currentIndex > count - 1) {
-        _currentIndex = 0;
+    if (_cIdx > count - 1) {
+        _cIdx = 0;
     }
     
-    int willShowIndex = _currentIndex + 1;
+    int willShowIndex = _cIdx + 1;
     if (willShowIndex > count - 1) {
         willShowIndex = 0;
     }
-//    NSLog(@">>>>%d", _currentIndex);
+//    NSLog(@">>>>%d", _cIdx);
     
     float w = self.frame.size.width;
     float h = self.frame.size.height;
     
-//    NSLog(@"count: %d,  _currentIndex:%d  willShowIndex: %d", count, _currentIndex, willShowIndex);
+//    NSLog(@"count: %d,  _cIdx:%d  willShowIndex: %d", count, _cIdx, willShowIndex);
 
+    if (!(w > 0 && h > 0)) {
+        _needTryRoll = YES;
+        return;
+    }
     if (!_currentCell) {
         // 第一次没有currentcell
         // currentcell is null at first time
-        _currentCell = [self.dataSource rollingNoticeView:self cellAtIndex:_currentIndex];
+        _currentCell = [self.dataSource rollingNoticeView:self cellAtIndex:_cIdx];
         _currentCell.frame  = CGRectMake(0, 0, w, h);
         [self addSubview:_currentCell];
         return;
@@ -179,7 +198,7 @@
     
     _status = GYRollingNoticeViewStatusIdle;
     _isAnimating = NO;
-    _currentIndex = 0;
+    _cIdx = 0;
     [_currentCell removeFromSuperview];
     [_willShowCell removeFromSuperview];
     _currentCell = nil;
@@ -209,7 +228,7 @@
     if (self.isAnimating) return;
     
     [self layoutCurrentCellAndWillShowCell];
-    _currentIndex ++;
+    
     
     float w = self.frame.size.width;
     float h = self.frame.size.height;
@@ -232,18 +251,16 @@
             self.currentCell = self.willShowCell;
         }
         self.isAnimating = NO;
+        
+        self -> _cIdx ++;
     }];
 }
 
 
 - (void)handleCellTapAction
 {
-    int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
-    if (_currentIndex > count - 1) {
-        _currentIndex = 0;
-    }
     if ([self.delegate respondsToSelector:@selector(didClickRollingNoticeView:forIndex:)]) {
-        [self.delegate didClickRollingNoticeView:self forIndex:_currentIndex];
+        [self.delegate didClickRollingNoticeView:self forIndex:self.currentIndex];
     }
 }
 
@@ -253,6 +270,18 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{}
+
+
+#pragma mark-
+
+- (int)currentIndex {
+    int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
+    if (_cIdx > count - 1) {
+        _cIdx = 0;
+    }
+    return _cIdx;
+}
+
 
 #pragma mark- lazy
 - (NSMutableDictionary *)cellClsDict

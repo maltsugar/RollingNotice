@@ -22,6 +22,8 @@
 		91FFD88A1FD52A36004A1A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD8891FD52A36004A1A27 /* main.m */; };
 		91FFD8931FD52A6F004A1A27 /* GYRollingNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD8921FD52A6F004A1A27 /* GYRollingNoticeView.m */; };
 		91FFD8961FD52A96004A1A27 /* GYNoticeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD8951FD52A96004A1A27 /* GYNoticeViewCell.m */; };
+		B911E5C92447331000A758F5 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B911E5C82447331000A758F5 /* ThirdViewController.m */; };
+		B9C7FE0F2447121D0006323D /* DemoCodeAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C7FE0E2447121D0006323D /* DemoCodeAutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,10 @@
 		91FFD8921FD52A6F004A1A27 /* GYRollingNoticeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYRollingNoticeView.m; sourceTree = "<group>"; };
 		91FFD8941FD52A96004A1A27 /* GYNoticeViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYNoticeViewCell.h; sourceTree = "<group>"; };
 		91FFD8951FD52A96004A1A27 /* GYNoticeViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYNoticeViewCell.m; sourceTree = "<group>"; };
+		B911E5C72447331000A758F5 /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		B911E5C82447331000A758F5 /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		B9C7FE0D2447121D0006323D /* DemoCodeAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoCodeAutoLayout.h; sourceTree = "<group>"; };
+		B9C7FE0E2447121D0006323D /* DemoCodeAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoCodeAutoLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,8 @@
 				91BA83E021194E8D002D2F85 /* SecondViewController.h */,
 				91BA83E121194E8D002D2F85 /* SecondViewController.m */,
 				91BA83E221194E8D002D2F85 /* SecondViewController.xib */,
+				B911E5C72447331000A758F5 /* ThirdViewController.h */,
+				B911E5C82447331000A758F5 /* ThirdViewController.m */,
 				916CCC9C1FDA34330070CAF3 /* CustomNoticeCell.h */,
 				916CCC9D1FDA34330070CAF3 /* CustomNoticeCell.m */,
 				916CCC9F1FDA343F0070CAF3 /* CustomNoticeCell.xib */,
@@ -98,6 +106,8 @@
 				919DB80F1FE0F84400029F63 /* DemoCell3.h */,
 				919DB8101FE0F84400029F63 /* DemoCell3.m */,
 				919DB8121FE0F84E00029F63 /* DemoCell3.xib */,
+				B9C7FE0D2447121D0006323D /* DemoCodeAutoLayout.h */,
+				B9C7FE0E2447121D0006323D /* DemoCodeAutoLayout.m */,
 				91FFD8801FD52A36004A1A27 /* Main.storyboard */,
 				91FFD8831FD52A36004A1A27 /* Assets.xcassets */,
 				91FFD8851FD52A36004A1A27 /* LaunchScreen.storyboard */,
@@ -194,8 +204,10 @@
 			files = (
 				91BA83E321194E8D002D2F85 /* SecondViewController.m in Sources */,
 				916CCC9E1FDA34330070CAF3 /* CustomNoticeCell.m in Sources */,
+				B9C7FE0F2447121D0006323D /* DemoCodeAutoLayout.m in Sources */,
 				91FFD8961FD52A96004A1A27 /* GYNoticeViewCell.m in Sources */,
 				919DB80E1FE0F44600029F63 /* DemoCell2.m in Sources */,
+				B911E5C92447331000A758F5 /* ThirdViewController.m in Sources */,
 				91FFD8931FD52A6F004A1A27 /* GYRollingNoticeView.m in Sources */,
 				91FFD87F1FD52A36004A1A27 /* ViewController.m in Sources */,
 				91FFD88A1FD52A36004A1A27 /* main.m in Sources */,
