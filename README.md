@@ -7,7 +7,7 @@
 
 ### 版本记录
 
-- 1.1.1 修复[#16](https://github.com/maltsugar/RollingNotice/issues/16)、[#17](https://github.com/maltsugar/RollingNotice/issues/17)，感谢[@xygkevin][https://github.com/xygkevin]
+- 1.1.1 修复[#16](https://github.com/maltsugar/RollingNotice/issues/16)、[#17](https://github.com/maltsugar/RollingNotice/issues/17)，感谢[@xygkevin](https://github.com/xygkevin)
 - 1.1.0 新增暂停/恢复功能
 - 1.0.9 数据源返回数量为0时，不再显示cell
 - 1.0.8 普通用法textLabel支持左右间距设置
